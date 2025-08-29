@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+
+
+:root {
+    --background-color-black: #0a0a0a;
+
+    --background-color-green-01: #57e057;
+    --background-color-green-01-transparent: #57e0571f;
+    --background-color-green-02: #39a139;
+
+    --text-color: #e9e9e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "TASA Orbiter", sans-serif;
+}
+
+html {
+    height: 100dvh;
+    width: 100vw;
+    overflow: hidden;
+
+    background-color: var(--background-color-black);
+}
+
+body {
+    height: 100dvh;
+    width: 100vw;
+    overflow: auto;
+}
+
+h1 {
+    font-size: 1rem;
+    text-align: justify;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 0.9rem;
+    text-align: justify;
+    color: var(--text-color);
+}

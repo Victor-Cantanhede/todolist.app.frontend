@@ -1,0 +1,23 @@
+button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-color-green-02);
+    color: var(--text-color);
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--background-color-green-01);
+    box-shadow: 0 0 10px var(--background-color-green-01-transparent);
+}

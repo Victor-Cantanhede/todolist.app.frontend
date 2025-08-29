@@ -1,0 +1,32 @@
+.main {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+.orientation {
+    padding: 8px;
+    border-top: 1px solid var(--background-color-green-01-transparent);
+    border-right: 1px solid var(--background-color-green-01-transparent);
+    border-bottom: 1px solid var(--background-color-green-01-transparent);
+    border-left: 2px solid var(--background-color-green-02);
+    border-radius: 5px;
+}
+
+form {
+    width: 100%;
+    margin-top: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}

@@ -1,0 +1,10 @@
+.card01 {
+    width: 450px;
+    max-width: 95vw;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+
+    background-color: #0f0f0f;
+    box-shadow: 0 0 5px #ffffff0c;
+}

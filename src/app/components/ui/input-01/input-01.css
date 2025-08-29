@@ -1,0 +1,25 @@
+label {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 5px;
+    outline: none;
+
+    background-color: var(--background-color-black);
+    color: var(--text-color);
+
+    transition: 0.2s;
+}
+
+input:focus {
+    border-bottom: 2px solid var(--background-color-green-01);
+    box-shadow: 0 0 10px var(--background-color-green-01-transparent);
+}

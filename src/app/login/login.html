@@ -1,0 +1,26 @@
+<app-card-01>
+    <div class="main">
+        <h1>TO DO APP</h1>
+        <div class="orientation">
+            <p>To get started, enter your login details or create a new account.</p>
+        </div>
+
+        <form method="post" autocomplete="off">
+            <app-input-01
+                [id]="'iUser'"
+                [type]="'text'"
+                [title]="'Username'"
+                [placeholder]="'Enter your username'"
+                [(value)]="inputUser"></app-input-01>
+
+            <app-input-01
+                [id]="'iPassword'"
+                [type]="'password'"
+                [title]="'Password'"
+                [placeholder]="'Enter your password'"
+                [(value)]="inputPassword"></app-input-01>
+
+            <app-button-01 style="margin-top: 25px;">LOGIN</app-button-01>
+        </form>
+    </div>
+</app-card-01>
