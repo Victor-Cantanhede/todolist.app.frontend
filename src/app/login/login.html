@@ -55,10 +55,10 @@
             }
 
             @if (hasAccount) {
-                <p class="hasAccount">Don't have an account? <a href="#" (click)="hasAccountHandle()">Sign up here</a></p>
+                <p class="hasAccount">Don't have an account? <a href="#" (click)="hasAccountHandle(); $event.preventDefault()">Sign up here</a></p>
             }
             @else {
-                <p class="hasAccount">Already have an account? <a href="#" (click)="hasAccountHandle()">Login here</a></p>
+                <p class="hasAccount">Already have an account? <a href="#" (click)="hasAccountHandle(); $event.preventDefault()">Login here</a></p>
             }
         </form>
     </div>
