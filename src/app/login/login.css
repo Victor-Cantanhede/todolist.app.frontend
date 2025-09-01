@@ -14,6 +14,7 @@ h1 {
 }
 
 .orientation {
+    width: 100%;
     padding: 8px;
     border-top: 1px solid var(--background-color-green-01-transparent);
     border-right: 1px solid var(--background-color-green-01-transparent);
@@ -29,4 +30,9 @@ form {
     display: flex;
     flex-flow: column nowrap;
     gap: 15px;
+}
+
+.hasAccount {
+    font-size: 0.8rem;
+    text-align: center;
 }

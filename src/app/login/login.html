@@ -2,25 +2,64 @@
     <div class="main">
         <h1>TO DO APP</h1>
         <div class="orientation">
-            <p>To get started, enter your login details or create a new account.</p>
+            @if (hasAccount) {
+                <p>To get started, enter your login details or create a new account.</p>
+            }
+            @else {
+                <p>To register, enter your details below.</p>
+            }
         </div>
 
-        <form method="post" autocomplete="off">
-            <app-input-01
-                [id]="'iUser'"
-                [type]="'text'"
-                [title]="'Username'"
-                [placeholder]="'Enter your username'"
-                [(value)]="inputUser"></app-input-01>
+        <form autocomplete="off">
 
-            <app-input-01
-                [id]="'iPassword'"
-                [type]="'password'"
-                [title]="'Password'"
-                [placeholder]="'Enter your password'"
-                [(value)]="inputPassword"></app-input-01>
+            @if (hasAccount) {
+                <app-input-01
+                    [id]="'iUser'"
+                    [type]="'text'"
+                    [title]="'Username'"
+                    [placeholder]="'Enter your username'"
+                    [(value)]="login.inputUser"></app-input-01>
+    
+                <app-input-01
+                    [id]="'iPassword'"
+                    [type]="'password'"
+                    [title]="'Password'"
+                    [placeholder]="'Enter your password'"
+                    [(value)]="login.inputPassword"></app-input-01>
+    
+                <app-button-01 style="margin-top: 25px;" (click)="onSubmit()">LOGIN</app-button-01>
+            }
+            @else {
+                <app-input-01
+                    [id]="'iName'"
+                    [type]="'text'"
+                    [title]="'Name'"
+                    [placeholder]="'Enter your full name'"
+                    [(value)]="signup.inputName"></app-input-01>
 
-            <app-button-01 style="margin-top: 25px;">LOGIN</app-button-01>
+                <app-input-01
+                    [id]="'iUser'"
+                    [type]="'text'"
+                    [title]="'Username'"
+                    [placeholder]="'Register a username'"
+                    [(value)]="signup.inputUsername"></app-input-01>
+    
+                <app-input-01
+                    [id]="'iPassword'"
+                    [type]="'password'"
+                    [title]="'Password'"
+                    [placeholder]="'Register a password'"
+                    [(value)]="signup.inputPassword"></app-input-01>
+    
+                <app-button-01 style="margin-top: 25px;" (click)="onSubmit()">SIGN UP</app-button-01>
+            }
+
+            @if (hasAccount) {
+                <p class="hasAccount">Don't have an account? <a href="#" (click)="hasAccountHandle()">Sign up here</a></p>
+            }
+            @else {
+                <p class="hasAccount">Already have an account? <a href="#" (click)="hasAccountHandle()">Login here</a></p>
+            }
         </form>
     </div>
 </app-card-01>
