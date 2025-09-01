@@ -12,7 +12,7 @@ export class UserService {
 
   // ===========================================================================================
   authUser(payload: { username: string, password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth`, payload);
+    return this.http.post(`${this.apiUrl}/auth`, payload, { withCredentials: true });
   }
 
   // ===========================================================================================
