@@ -54,7 +54,7 @@
 
                 @if (task.status === true) {
 
-                    <app-button-01 color="blue" (click)="showEditTaskComponet(task)">
+                    <app-button-01 color="blue" (click)="showEditTaskComponet(task, true)">
                         <mat-icon class="icon-size">edit_document</mat-icon>
                     </app-button-01>
                 }
@@ -64,5 +64,12 @@
                 </app-button-01>
             </div>
         </div>
+
+        @if (editTaskComponet && editTaskComponet.task && editTaskComponet.status === true) {
+            <app-edit-task
+                [taskData]="editTaskComponet.task"
+                (updateTask)="handleUpdateTask($event)"
+                (closeModal)="showEditTaskComponet(task, false)"></app-edit-task>
+        }
     }
 </div>

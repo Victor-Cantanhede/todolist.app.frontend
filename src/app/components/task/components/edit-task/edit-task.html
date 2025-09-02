@@ -1,0 +1,32 @@
+<app-modal-01>
+    <div class="container">
+        <h1><strong>Edit Task</strong></h1>
+
+        <form class="edit-task-form" autocomplete="off">
+
+            <app-input-01
+                [id]="'iEditTitle'"
+                title="Title"
+                placeholder="Enter a title"
+                [(value)]="newTaskData.title"></app-input-01>
+
+            <app-input-01
+                [id]="'iEditDescription'"
+                title="Description"
+                placeholder="Enter a description"
+                [(value)]="newTaskData.description"></app-input-01>
+
+            <app-button-01
+                style="margin-top: 25px;"
+                (click)="emitUpdateTask()"
+                
+            ><mat-icon class="icon-size">sync</mat-icon>Update</app-button-01>
+
+            <app-button-01
+                color="red"
+                (click)="emitCloseModal()"
+
+            ><mat-icon class="icon-size">close</mat-icon>Cancel</app-button-01>
+        </form>
+    </div>
+</app-modal-01>

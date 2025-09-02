@@ -1,0 +1,25 @@
+.container {
+    padding: 10px;
+    border: 1px solid var(--border-color-gray-01);
+    border-radius: 5px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 8px;
+
+    box-shadow: 0 0 5px #ffffff15;
+}
+
+h1 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color-gray-01);
+}
+
+.edit-task-form {
+    margin-top: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 15px;
+}

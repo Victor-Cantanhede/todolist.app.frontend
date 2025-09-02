@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { ApiService } from './api';
 import { Injectable } from '@angular/core';
-import { TaskDTO } from '../components/task/task';
+import { TaskDTO, UpdateTaskDTO } from '../components/task/task';
 
 
 @Injectable({
@@ -21,7 +21,7 @@ export class TaskService extends ApiService {
   }
 
   // ===========================================================================================
-  updateTask(taskId: number, payload: Partial<TaskDTO>): Observable<any> {
+  updateTask(taskId: number, payload: UpdateTaskDTO): Observable<any> {
     return this.http.put(`${this.taskRoute}/update/${taskId}`, payload, { withCredentials: true });
   }
 

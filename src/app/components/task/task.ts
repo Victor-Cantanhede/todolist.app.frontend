@@ -3,19 +3,21 @@ import { Button01 } from "../ui/button-01/button-01";
 import { MatIconModule } from '@angular/material/icon';
 import { TaskService } from '../../services/task';
 import { Input01 } from "../ui/input-01/input-01";
+import { EditTask } from "./components/edit-task/edit-task";
 
 @Component({
   selector: 'app-task',
-  imports: [Button01, MatIconModule, Input01],
+  imports: [Button01, MatIconModule, Input01, EditTask],
   templateUrl: './task.html',
   styleUrl: './task.css'
 })
 
 export class Task {
 
-  tasks: TaskDTO[] = [];
   newTask = { inputTitle: '', inputDescription: '' };
-  editTaskComponet!: { task: TaskDTO, status: boolean };
+
+  tasks: TaskDTO[] = [];
+  editTaskComponet?: { task: TaskDTO, status: boolean };
 
   constructor(private taskService: TaskService) {}
 
@@ -60,13 +62,12 @@ export class Task {
   }
 
   // ===========================================================================================
-  showEditTaskComponet(task: TaskDTO) {
-    console.log(this.editTaskComponet);
-    console.log(task);
+  showEditTaskComponet(task: TaskDTO, status: boolean) {
+    this.editTaskComponet = { task: task, status: status };
   }
 
   // ===========================================================================================
-  updateTask(task: TaskDTO) {
+  private updateTask(task: TaskDTO) {
 
     const payload = {
       title: task.title,
@@ -78,10 +79,7 @@ export class Task {
 
       next: (response) => {
         const updatedTask = response.data.updatedTask as TaskDTO;
-
-        this.tasks = this.tasks.map((task) => updatedTask.id === task.id
-          ? { ...task, status: updatedTask.status }
-          : { ...task });
+        this.tasks = this.tasks.map((task) => updatedTask.id === task.id ? updatedTask : task );
 
         console.log('Update Task OK!');
       },
@@ -94,6 +92,18 @@ export class Task {
 
   toggleTaskStatus(task: TaskDTO, newStatus: boolean) {
     this.updateTask({ ...task, status: newStatus });
+  }
+
+  handleUpdateTask(updatedTaskData: UpdateTaskDTO) {
+    if (!this.editTaskComponet) return;
+
+    const updatedTask: TaskDTO = {
+      ...this.editTaskComponet.task,
+      title: updatedTaskData.title,
+      description: updatedTaskData.description
+    };
+
+    this.updateTask(updatedTask);
   }
 
   // ===========================================================================================
@@ -120,4 +130,10 @@ export interface TaskDTO {
   status: boolean;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface UpdateTaskDTO {
+  title: string;
+  description: string;
+  stauts?: boolean;
 }
