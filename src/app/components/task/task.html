@@ -1,0 +1,68 @@
+<div class="main">
+
+    <div class="container">
+        <h1><strong>New Task</strong></h1>
+
+        <form class="create-task-form" autocomplete="off">
+            <app-input-01
+                [id]="'iTitle'"
+                title="Title"
+                placeholder="Enter a title"
+                [(value)]="newTask.inputTitle"></app-input-01>
+
+            <app-input-01
+                [id]="'iDescription'"
+                title="Description"
+                placeholder="Enter a description"
+                [(value)]="newTask.inputDescription"></app-input-01>
+
+            <app-button-01 style="margin-top: 25px;" (click)="createTask()"><mat-icon class="icon-size">cloud_upload</mat-icon>Create</app-button-01>
+        </form>
+    </div>
+
+    @for (task of tasks; track $index) {
+
+        <div class="container">
+            <h1><strong>{{ task.title }}</strong></h1>
+        
+            <div>
+                <p>
+                    <strong>Status: </strong>
+                    @if (task.status === true) { <span class="task-status-true">Pending</span> } @else { <span class="task-status-false">Completed</span> }
+                </p>
+            </div>
+
+            <div>
+                <p><strong>Description:</strong></p>
+                <p class="task-description">{{ task.description }}</p>
+            </div>
+            
+            @if (task.status === true) {
+
+            }
+            <div class="button-container">
+                <app-button-01 (click)="toggleTaskStatus(task, !task.status)">
+
+                    @if (task.status === true) {
+                        <mat-icon class="icon-size">done_outline</mat-icon>
+                    }
+                    @else {
+                        <mat-icon class="icon-size">done_all</mat-icon>
+                    }
+
+                </app-button-01>
+
+                @if (task.status === true) {
+
+                    <app-button-01 color="blue" (click)="showEditTaskComponet(task)">
+                        <mat-icon class="icon-size">edit_document</mat-icon>
+                    </app-button-01>
+                }
+        
+                <app-button-01 color="red" (click)="deleteTask(task.id)">
+                    <mat-icon class="icon-size">delete</mat-icon>
+                </app-button-01>
+            </div>
+        </div>
+    }
+</div>

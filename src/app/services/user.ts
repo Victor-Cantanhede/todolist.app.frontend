@@ -1,22 +1,22 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ApiService } from './api';
+import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  private apiUrl = 'http://localhost:5000/users';
 
-  constructor(private http: HttpClient) {}
+
+export class UserService extends ApiService {
 
   // ===========================================================================================
   authUser(payload: { username: string, password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth`, payload, { withCredentials: true });
+    return this.http.post(`${this.userRoute}/auth`, payload, { withCredentials: true });
   }
 
   // ===========================================================================================
-  createUser(payload: { name: string, username: string, password: string }) {
-    return this.http.post(`${this.apiUrl}/create`, payload);
+  createUser(payload: { name: string, username: string, password: string }): Observable<any> {
+    return this.http.post(`${this.userRoute}/create`, payload);
   }
 }

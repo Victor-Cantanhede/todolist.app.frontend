@@ -8,6 +8,14 @@
     --background-color-green-01-transparent: #57e0571f;
     --background-color-green-02: #39a139;
 
+    --background-color-blue-01: #328bbe;
+    --background-color-blue-02: #156ea1;
+
+    --background-color-red-01: #b81313;
+    --background-color-red-02: #ee3030;
+
+    --border-color-gray-01: #222222;
+
     --text-color: #e9e9e9;
 }
 
@@ -44,3 +52,5 @@ p {
     text-align: justify;
     color: var(--text-color);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

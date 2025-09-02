@@ -8,16 +8,37 @@ button {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 
-    background-color: var(--background-color-green-02);
     color: var(--text-color);
     font-weight: bold;
+    font-size: 0.8rem;
 
     transition: 0.2s;
 }
 
+.green {
+    background-color: var(--background-color-green-02);
+}
+.green:hover {
+    background-color: var(--background-color-green-01);
+}
+
+.blue {
+    background-color: var(--background-color-blue-02);
+}
+.blue:hover {
+    background-color: var(--background-color-blue-01);
+}
+
+.red {
+    background-color: var(--background-color-red-01);
+}
+.red:hover {
+    background-color: var(--background-color-red-02);
+}
+
 button:hover {
     cursor: pointer;
-    background-color: var(--background-color-green-01);
     box-shadow: 0 0 10px var(--background-color-green-01-transparent);
 }
