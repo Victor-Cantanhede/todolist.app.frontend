@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://todolist-app-rsul.onrender.com';
   public userRoute = `${this.apiUrl}/users`;
   public taskRoute = `${this.apiUrl}/tasks`;
 
