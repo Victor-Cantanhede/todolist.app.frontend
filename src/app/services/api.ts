@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://todolist-app-1a3g.onrender.com';
+  private apiUrl = environment.apiUrl;
   public userRoute = `${this.apiUrl}/users`;
   public taskRoute = `${this.apiUrl}/tasks`;
 
