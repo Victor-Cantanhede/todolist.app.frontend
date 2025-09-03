@@ -2,13 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "angular.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist/todolist.app.frontend"
       }
     }
   ],
-  "buildCommand": "ng build --configuration production",
-  "outputDirectory": "dist/todolist.app.frontend"
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
